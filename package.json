@@ -1,6 +1,8 @@
 {
-  "name": "my-app",
+  "name": "react-pro-camp",
   "version": "0.1.0",
+  "description": "React.js",
+  "author": "Yevhen Leontiev <leontevevgenii@gmail.com>",
   "private": true,
   "dependencies": {
     "react": "^16.8.6",
