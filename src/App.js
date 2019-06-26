@@ -1,13 +1,21 @@
 import React from 'react';
-import Home from './pages/Home';
+import { Container, Row, Col } from 'react-bootstrap';
+import { Header } from './components';
 
 function App() {
 	return (
-		<div className="App">
-			<header className="App-header">
-				<Home />
-			</header>
-		</div>
+		<React.Fragment>
+			<Header />
+			<main>
+				<Container>
+					<Row>
+						<Col>1 Section</Col>
+						<Col>2 Section</Col>
+						<Col>3 Section</Col>
+					</Row>
+				</Container>
+			</main>
+		</React.Fragment>
 	);
 }
 
