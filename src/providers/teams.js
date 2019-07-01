@@ -1,6 +1,8 @@
-import axios from 'axios';
-import { API_URL } from '../constants';
+import request from '../utils/request';
 
 export const getLeagueTeamsById = id => {
-	return axios.get(`${API_URL}/teams/league/${id}`);
+	return request({
+		url: `/teams/league/${id}`,
+		method: 'GET',
+	});
 };
