@@ -7,15 +7,15 @@ import NotFound from './pages/NotFound';
 
 const App = () => (
 	<Router>
-		<Header />
-		<main>
-			<Container>
+		<Container>
+			<Header />
+			<main>
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<Route component={NotFound} />
 				</Switch>
-			</Container>
-		</main>
+			</main>
+		</Container>
 	</Router>
 );
 
