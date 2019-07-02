@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Row, Col, Media, Spinner } from 'react-bootstrap';
+import { Row, Col, Media } from 'react-bootstrap';
+import ContainerHOC from '../hoc/ContainerHOC';
 import { getLeagueTeamsById } from '../providers/teams';
 
 const ID_LEAGUE = 2;
+const DivContainerHOC = ContainerHOC(({ children }) => children);
 
 const createList = data => {
 	let i,
@@ -28,7 +30,7 @@ const createList = data => {
 						/>
 						<Media.Body>
 							<div>{item.name}</div>
-							<small className="text-muted">{item.venue_city}</small>
+							<small className="text-muted city-name">{item.venue_city}</small>
 						</Media.Body>
 					</Media>
 				</Col>
@@ -63,24 +65,20 @@ class Home extends Component {
 			});
 		} catch (e) {
 			this.setState({
-				error: e.message,
+				error: e.data.message,
 				isFetching: false,
 			});
 		}
 	};
 
 	render() {
-		const { teams, isFetching } = this.state;
+		const { teams, isFetching, error } = this.state;
 
-		if (isFetching) {
-			return (
-				<Spinner animation="border" role="status">
-					<span className="sr-only">Loading...</span>
-				</Spinner>
-			);
-		}
-
-		return <ul>{createList(teams)}</ul>;
+		return (
+			<DivContainerHOC isFetching={isFetching} error={error}>
+				<ul>{createList(teams)}</ul>
+			</DivContainerHOC>
+		);
 	}
 }
 
