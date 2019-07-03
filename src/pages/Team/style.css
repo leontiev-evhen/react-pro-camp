@@ -1,0 +1,12 @@
+.team-section h1 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.team-section figure {
+  text-align: center;
+}
+
+.team-section li {
+  list-style-type: none;
+}

@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import { Row, Col, Media } from 'react-bootstrap';
-import ContainerHOC from '../hoc/ContainerHOC';
-import { getLeagueTeamsById } from '../providers/teams';
+import { Link } from 'react-router-dom';
+import { Row, Col, Figure } from 'react-bootstrap';
+import { ErrorBoundary } from '../../components';
+import ContainerHOC from '../../hoc/ContainerHOC';
+import { getLeagueTeamsById } from '../../providers/teams';
+import { ID_LEAGUE } from '../../constants';
+import './style.css';
 
-const ID_LEAGUE = 2;
 const DivContainerHOC = ContainerHOC(({ children }) => children);
 
 const createList = data => {
@@ -19,21 +22,19 @@ const createList = data => {
 
 		tempArray.map(item => {
 			return items.push(
-				<Col key={item.team_id} md="3">
-					<Media as="li">
-						<img
-							width={50}
-							height={50}
-							className="mr-3"
-							src={item.logo}
-							alt="logo"
-						/>
-						<Media.Body>
-							<div>{item.name}</div>
-							<small className="text-muted city-name">{item.venue_city}</small>
-						</Media.Body>
-					</Media>
-				</Col>
+				<ErrorBoundary key={item.team_id}>
+					<Col md="3">
+						<div className="section-team">
+							<Link to={`/team/${item.team_id}`}>
+								<div className="section-team-title">{item.name}</div>
+								<Figure>
+									<Figure.Image alt="logo" src={item.logo} />
+								</Figure>
+								<small>{item.venue_city}</small>
+							</Link>
+						</div>
+					</Col>
+				</ErrorBoundary>
 			);
 		});
 		list.push(
@@ -65,7 +66,7 @@ class Home extends Component {
 			});
 		} catch (e) {
 			this.setState({
-				error: e.data.message,
+				error: e.message || e.data.message,
 				isFetching: false,
 			});
 		}

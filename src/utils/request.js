@@ -12,6 +12,9 @@ const client = axios.create({
 
 const request = async function(options) {
 	const onSuccess = function(response) {
+		if (response.data.api.results === 0) {
+			return Promise.reject({ message: 'Nothing was found' });
+		}
 		console.info('Request Successful!', response);
 		return response.data;
 	};

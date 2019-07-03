@@ -1,0 +1,55 @@
+.section-team {
+  position: relative;
+  height: 220px;
+  text-align: center;
+}
+
+.section-team small {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, .5);
+  text-transform: uppercase;
+  font-size: 10px;
+  text-decoration: none;
+  text-align: center;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+  opacity: 0;
+}
+
+.section-team figure:hover+small {
+  bottom: 5px;
+  opacity: 1;
+}
+
+.section-team-title {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.section-team figure img {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.section-team figure:hover img {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.section-team a {
+  color: #000;
+}
+
+.section-team a:hover {
+  text-decoration: none;
+}

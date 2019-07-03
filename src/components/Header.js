@@ -1,12 +1,32 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import logo from '../assets/logo.png';
+
+const NAV_ITEMS = [
+	{
+		link: '/',
+		name: 'Home',
+	},
+	{
+		link: '/teams',
+		name: 'Teams',
+	},
+	{
+		link: '/fixtures',
+		name: 'Fixtures',
+	},
+	{
+		link: '/odds',
+		name: 'Odds',
+	},
+];
 
 export function Header() {
 	return (
 		<header>
 			<Navbar bg="light" expand="lg">
-				<Navbar.Brand href="#home">
+				<Navbar.Brand href="/">
 					<img
 						src={logo}
 						width="80"
@@ -18,10 +38,17 @@ export function Header() {
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="mr-auto">
-						<Nav.Link href="#home">Home</Nav.Link>
-						<Nav.Link href="#link">Teams</Nav.Link>
-						<Nav.Link href="#link">Fixtures</Nav.Link>
-						<Nav.Link href="#link">Odds</Nav.Link>
+						{NAV_ITEMS.map(item => (
+							<NavLink
+								key={item.link}
+								to={item.link}
+								className="nav-link"
+								exact
+								activeClassName="selected"
+							>
+								{item.name}
+							</NavLink>
+						))}
 					</Nav>
 					<Form inline>
 						<FormControl type="text" placeholder="Search" className="mr-sm-2" />
