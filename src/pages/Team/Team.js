@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col, Figure } from 'react-bootstrap';
 import ContainerHOC from '../../hoc/ContainerHOC';
 import { getTeamById } from '../../providers/teams';
-import './style.css';
+import TeamProfile from './TeamProfile';
 
-const DivContainerHOC = ContainerHOC(({ children }) => children);
+const DivContainerHOC = ContainerHOC(TeamProfile);
 
 class Team extends Component {
 	state = {
@@ -36,43 +35,7 @@ class Team extends Component {
 	render() {
 		const { team, isFetching, error } = this.state;
 		return (
-			<DivContainerHOC isFetching={isFetching} error={error}>
-				<div className="team-section">
-					<Row>
-						<Col md={3}>
-							<Figure>
-								<Figure.Image
-									width={171}
-									height={180}
-									alt="logo"
-									src={team.logo}
-								/>
-								<Figure.Caption>
-									<div>{team.venue_city}</div>
-									<div>{team.venue_address}</div>
-								</Figure.Caption>
-							</Figure>
-						</Col>
-						<Col md={9}>
-							<h1>{team.name}</h1>
-							<ul>
-								<li>
-									<b>Country:</b> {team.country}
-								</li>
-								<li>
-									<b>Founded:</b> {team.founded}
-								</li>
-								<li>
-									<b>Stadium:</b> «{team.venue_name}»
-								</li>
-								<li>
-									<b>Capacity:</b> {team.venue_capacity}
-								</li>
-							</ul>
-						</Col>
-					</Row>
-				</div>
-			</DivContainerHOC>
+			<DivContainerHOC team={team} isFetching={isFetching} error={error} />
 		);
 	}
 }
