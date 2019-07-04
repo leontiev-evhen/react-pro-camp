@@ -6,18 +6,9 @@ import { ErrorBoundary } from '../../components';
 import './style.css';
 
 function List({ teams }) {
-	let i,
-		j,
-		list = [],
-		tempArray = [],
-		chunk = 4;
-
-	for (i = 0, j = teams.length; i < j; i += chunk) {
-		tempArray = teams.slice(i, i + chunk);
-		let items = [];
-
-		tempArray.map(item => {
-			return items.push(
+	return (
+		<Row>
+			{teams.map(item => (
 				<ErrorBoundary key={item.team_id}>
 					<Col md="3">
 						<div className="section-team">
@@ -31,15 +22,9 @@ function List({ teams }) {
 						</div>
 					</Col>
 				</ErrorBoundary>
-			);
-		});
-		list.push(
-			<div key={i} className="my-3">
-				<Row>{items}</Row>
-			</div>
-		);
-	}
-	return <ul>{list}</ul>;
+			))}
+		</Row>
+	);
 }
 
 List.propTypes = {
