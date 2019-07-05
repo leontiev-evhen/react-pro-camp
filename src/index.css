@@ -24,6 +24,14 @@ ul {
   padding: 0;
 }
 
+a {
+  color: #000;
+}
+
+.section-team a:hover {
+  text-decoration: none;
+}
+
 .preloder {
   position: fixed;
   width: 100%;
@@ -48,4 +56,8 @@ ul {
 
 .selected {
   border-bottom: 1px dotted #ccc;
+}
+
+.center {
+  text-align: center;
 }

@@ -1,7 +1,6 @@
 .section-team {
   position: relative;
   height: 220px;
-  text-align: center;
 }
 
 .section-team small {
@@ -17,7 +16,6 @@
   text-transform: uppercase;
   font-size: 10px;
   text-decoration: none;
-  text-align: center;
   -webkit-transition: .3s ease-in-out;
   transition: .3s ease-in-out;
   opacity: 0;
@@ -44,12 +42,4 @@
 .section-team figure:hover img {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
-}
-
-.section-team a {
-  color: #000;
-}
-
-.section-team a:hover {
-  text-decoration: none;
 }

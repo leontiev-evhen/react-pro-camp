@@ -1,0 +1,16 @@
+.table th {
+  text-align: center;
+}
+
+.table img {
+  margin-right: 10px;
+}
+
+.section-home-team {
+  text-align: right;
+}
+
+.line {
+  background: #c12133;
+  color: #fff;
+}

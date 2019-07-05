@@ -1,15 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Spinner } from 'react-bootstrap';
+import { Preloader } from '../components';
 
 function ContainerHOC(Component) {
 	function containerHOC({ isFetching, error, ...props }) {
-		if (isFetching)
-			return (
-				<div className="preloder">
-					<Spinner animation="grow" variant="danger" className="loader" />
-				</div>
-			);
+		if (isFetching) return <Preloader />;
 		if (error) return <div className="error-message">{error}</div>;
 		return <Component {...props} />;
 	}

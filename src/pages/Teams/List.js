@@ -11,7 +11,7 @@ function List({ teams }) {
 			{teams.map(item => (
 				<ErrorBoundary key={item.team_id}>
 					<Col md="3">
-						<div className="section-team">
+						<div className="section-team center">
 							<Link to={`/team/${item.team_id}`}>
 								<div className="section-team-title">{item.name}</div>
 								<Figure>
