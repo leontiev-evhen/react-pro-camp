@@ -10,7 +10,7 @@ function FixtureList({ fixtures, loading }) {
 	let round = 1;
 	const MAX_COUNT_ROUNDS = 38;
 	return (
-		<>
+		<React.Fragment>
 			<Table striped bordered hover>
 				<thead>
 					<tr>
@@ -62,7 +62,7 @@ function FixtureList({ fixtures, loading }) {
 				</tbody>
 			</Table>
 			{loading && <Preloader />}
-		</>
+		</React.Fragment>
 	);
 }
 

@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { fetchTeams } from '../../actions';
 import ContainerHOC from '../../hoc/ContainerHOC';
 import FixturesList from './FixturesList';
 import { getFixturesLeagueById } from '../../providers/fixtures';
@@ -40,15 +37,15 @@ class Fixtures extends Component {
 
 	loadFixtures = () => {
 		this.setState(prevState => {
-			const newArr = this.state.fixtures.slice(
-				prevState.offset + 20,
-				prevState.limit + 20
-			);
+			const newOffset = prevState.offset + 20;
+			const newLimit = prevState.limit + 20;
+
+			const newArr = this.state.fixtures.slice(newOffset, newLimit);
 
 			return {
 				tempFixtures: [...prevState.tempFixtures, ...newArr],
-				offset: prevState.offset + 20,
-				limit: prevState.limit + 20,
+				offset: newOffset,
+				limit: newLimit,
 				loading: true,
 			};
 		});
@@ -89,26 +86,4 @@ class Fixtures extends Component {
 	}
 }
 
-Fixtures.propTypes = {
-	teams: PropTypes.array.isRequired,
-	isFetching: PropTypes.bool.isRequired,
-	error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).isRequired,
-	fetchTeams: PropTypes.func.isRequired,
-};
-
-const mapStateToProps = state => ({
-	teams: state.teams.teams,
-	isFetching: state.teams.isFetching,
-	error: state.teams.error,
-});
-
-const mapDispatchToProps = dispatch => ({
-	fetchTeams: () => {
-		dispatch(fetchTeams());
-	},
-});
-
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(Fixtures);
+export default Fixtures;
