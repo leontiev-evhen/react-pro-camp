@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Table, Image } from 'react-bootstrap';
+import { Table, Image, Card, Accordion, Button } from 'react-bootstrap';
 import { Preloader } from '../../components';
 import { timeConverter } from '../../utils/date';
 import './style.css';
@@ -19,11 +19,12 @@ function FixtureList({ fixtures, loading }) {
 						<th>Score</th>
 						<th>Away team</th>
 						<th>Status</th>
+						<th>Events</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td className="line center" colSpan="5">
+						<td className="line center" colSpan="6">
 							{round} Round
 						</td>
 					</tr>
@@ -49,10 +50,28 @@ function FixtureList({ fixtures, loading }) {
 									</Link>
 								</td>
 								<td className="center">{item.status}</td>
+								<td className="center">
+									<Accordion>
+										<Card>
+											<Card.Header>
+												<Accordion.Toggle
+													as={Button}
+													variant="link"
+													eventKey="0"
+												>
+													Show details
+												</Accordion.Toggle>
+											</Card.Header>
+											<Accordion.Collapse eventKey="0">
+												<Card.Body>Hello! I am the body</Card.Body>
+											</Accordion.Collapse>
+										</Card>
+									</Accordion>
+								</td>
 							</tr>
 							{(key + 1) % 10 === 0 && round + 1 <= MAX_COUNT_ROUNDS && (
 								<tr>
-									<td className="line center" colSpan="5">
+									<td className="line center" colSpan="6">
 										{++round} Round
 									</td>
 								</tr>
