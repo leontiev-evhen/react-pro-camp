@@ -1,17 +1,19 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Table, Image, Card, Accordion, Button } from 'react-bootstrap';
-import { Preloader } from '../../components';
-import { timeConverter } from '../../utils/date';
-import './style.css';
+import { Table, Image } from 'react-bootstrap';
+import { Preloader } from '../../../components';
+import { timeConverter } from '../../../utils/date';
+import FixtureEvents from './FixtureEvents';
+import '../style.css';
 
 function FixtureList({ fixtures, loading }) {
+	const [show, setShow] = useState(false);
 	let round = 1;
 	const MAX_COUNT_ROUNDS = 38;
 	return (
 		<React.Fragment>
-			<Table striped bordered hover>
+			<Table striped bordered hover responsive>
 				<thead>
 					<tr>
 						<th>Event date</th>
@@ -49,26 +51,18 @@ function FixtureList({ fixtures, loading }) {
 										{item.awayTeam.team_name}
 									</Link>
 								</td>
-								<td className="center">{item.status}</td>
-								<td className="center">
-									<Accordion>
-										<Card>
-											<Card.Header>
-												<Accordion.Toggle
-													as={Button}
-													variant="link"
-													eventKey="0"
-												>
-													Show details
-												</Accordion.Toggle>
-											</Card.Header>
-											<Accordion.Collapse eventKey="0">
-												<Card.Body>Hello! I am the body</Card.Body>
-											</Accordion.Collapse>
-										</Card>
-									</Accordion>
+								<td className="center" onClick={() => setShow(!show)}>
+									{item.status}
+								</td>
+								<td className="center" width="30%">
+									<FixtureEvents id={item.fixture_id} />
 								</td>
 							</tr>
+							{show && (
+								<tr>
+									<td colSpan="6">hi</td>
+								</tr>
+							)}
 							{(key + 1) % 10 === 0 && round + 1 <= MAX_COUNT_ROUNDS && (
 								<tr>
 									<td className="line center" colSpan="6">

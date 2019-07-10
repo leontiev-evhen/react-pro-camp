@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ContainerHOC from '../../hoc/ContainerHOC';
-import FixturesList from './FixturesList';
+import FixturesList from './componets/FixturesList';
 import { getFixturesLeagueById } from '../../providers/fixtures';
 import { ID_LEAGUE } from '../../constants';
 
