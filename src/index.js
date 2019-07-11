@@ -1,29 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import createSagaMiddleware from 'redux-saga';
-import { createLogger } from 'redux-logger';
-import { createStore, applyMiddleware } from 'redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import reducer from './reducers';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import rootSaga from './sagas';
-
-const loggerMiddleware = createLogger();
-const sagaMiddleware = createSagaMiddleware();
-const store = createStore(
-	reducer,
-	applyMiddleware(sagaMiddleware, loggerMiddleware)
-);
-
-// then run the saga
-sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
 	<Provider store={store}>
-		<App />
+		<PersistGate loading={null} persistor={persistor}>
+			<App />
+		</PersistGate>
 	</Provider>,
 	document.getElementById('root')
 );

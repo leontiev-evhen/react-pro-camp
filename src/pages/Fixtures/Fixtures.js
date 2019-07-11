@@ -19,7 +19,7 @@ class Fixtures extends Component {
 	};
 
 	componentDidMount() {
-		this.props.fetchFixtures();
+		if (this.props.fixtures.length === 0) this.props.fetchFixtures();
 		window.addEventListener('scroll', this.onScroll, false);
 	}
 
