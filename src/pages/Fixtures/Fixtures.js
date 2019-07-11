@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { requestFixtures, updateFixtures } from '../../actions';
 import ContainerHOC from '../../hoc/ContainerHOC';
 import FixturesList from './componets/FixturesList';
-import { getFixturesLeagueById } from '../../providers/fixtures';
-import { ID_LEAGUE } from '../../constants';
 
 const DivContainerHOC = ContainerHOC(FixturesList);
 
@@ -18,7 +19,7 @@ class Fixtures extends Component {
 	};
 
 	componentDidMount() {
-		this.getFixtures();
+		this.props.fetchFixtures();
 		window.addEventListener('scroll', this.onScroll, false);
 	}
 
@@ -29,26 +30,15 @@ class Fixtures extends Component {
 	onScroll = () => {
 		if (
 			window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 &&
-			this.state.tempFixtures.length !== this.state.fixtures.length
+			this.props.tempFixtures.length !== this.props.fixtures.length
 		) {
 			this.loadFixtures();
 		}
 	};
 
 	loadFixtures = () => {
-		this.setState(prevState => {
-			const newOffset = prevState.offset + 20;
-			const newLimit = prevState.limit + 20;
-
-			const newArr = this.state.fixtures.slice(newOffset, newLimit);
-
-			return {
-				tempFixtures: [...prevState.tempFixtures, ...newArr],
-				offset: newOffset,
-				limit: newLimit,
-				loading: true,
-			};
-		});
+		this.props.loadFixtures();
+		this.setState({ loading: true });
 		setTimeout(() => {
 			this.setState({
 				loading: false,
@@ -56,24 +46,9 @@ class Fixtures extends Component {
 		}, 1000);
 	};
 
-	getFixtures = async () => {
-		try {
-			const response = await getFixturesLeagueById(ID_LEAGUE);
-			this.setState({
-				fixtures: response.api.fixtures,
-				tempFixtures: response.api.fixtures.slice(0, 20),
-				isFetching: false,
-			});
-		} catch (e) {
-			this.setState({
-				error: e.message || e.data.message,
-				isFetching: false,
-			});
-		}
-	};
-
 	render() {
-		const { tempFixtures, loading, isFetching, error } = this.state;
+		const { isFetching, error, tempFixtures } = this.props;
+		const { loading } = this.state;
 
 		return (
 			<DivContainerHOC
@@ -86,4 +61,32 @@ class Fixtures extends Component {
 	}
 }
 
-export default Fixtures;
+Fixtures.propTypes = {
+	fixtures: PropTypes.array.isRequired,
+	tempFixtures: PropTypes.array.isRequired,
+	isFetching: PropTypes.bool.isRequired,
+	error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).isRequired,
+	fetchFixtures: PropTypes.func.isRequired,
+	loadFixtures: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => ({
+	fixtures: state.fixtures.fixtures,
+	tempFixtures: state.fixtures.tempFixtures,
+	isFetching: state.fixtures.isFetching,
+	error: state.fixtures.error,
+});
+
+const mapDispatchToProps = dispatch => ({
+	fetchFixtures: () => {
+		dispatch(requestFixtures());
+	},
+	loadFixtures: () => {
+		dispatch(updateFixtures());
+	},
+});
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Fixtures);

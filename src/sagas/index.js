@@ -1,6 +1,7 @@
-import { all } from 'redux-saga/effects';
+import { all, fork } from 'redux-saga/effects';
 import { watchGetTeams } from './teamsSaga';
+import { watchGetFixtures } from './fixturesSaga';
 
 export default function* rootSaga() {
-	yield all([watchGetTeams()]);
+	yield all([fork(watchGetTeams), fork(watchGetFixtures)]);
 }
