@@ -1,9 +1,6 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
-import {
-	REQUEST_TEAMS,
-	REQUEST_TEAMS_SUCCEEDED,
-	REQUEST_TEAMS_FAILED,
-} from '../constants/actionTypes';
+import { REQUEST_TEAMS } from '../constants/actionTypes';
+import { requestTeamsSucceeded, requestTeamsFailed } from '../actions';
 import { getLeagueTeamsById } from '../providers/teams';
 import { ID_LEAGUE } from '../constants';
 
@@ -13,12 +10,9 @@ export function* watchGetTeams() {
 
 function* getTeamsWorker() {
 	try {
-		const teams = yield call(getLeagueTeamsById(ID_LEAGUE));
-		yield put({ type: REQUEST_TEAMS_SUCCEEDED, payload: teams });
+		const response = yield call(getLeagueTeamsById, ID_LEAGUE);
+		yield put(requestTeamsSucceeded(response.api.teams));
 	} catch (e) {
-		yield put({
-			type: REQUEST_TEAMS_FAILED,
-			payload: e.message || e.data.message,
-		});
+		yield put(requestTeamsFailed(e.message || e.data.message));
 	}
 }

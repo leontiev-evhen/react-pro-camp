@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchTeams } from '../../actions';
+import { requestTeams } from '../../actions';
 import ContainerHOC from '../../hoc/ContainerHOC';
 import List from './List';
 
@@ -36,7 +36,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	fetchTeams: () => {
-		dispatch(fetchTeams());
+		dispatch(requestTeams());
 	},
 });
 
