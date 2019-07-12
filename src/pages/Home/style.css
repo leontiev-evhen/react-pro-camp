@@ -1,0 +1,19 @@
+.section {
+  font-size: 12px;
+}
+
+.btn-sections {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-sections div:hover {
+  cursor: pointer;
+}
+
+.section-title {
+  background: #c12133;
+  color: #fff;
+  margin-top: 15px;
+  padding: 3px;
+}

@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Table, Image } from 'react-bootstrap';
@@ -8,7 +8,6 @@ import FixtureEvents from './FixtureEvents';
 import '../style.css';
 
 function FixtureList({ fixtures, loading }) {
-	const [show, setShow] = useState(false);
 	let round = 1;
 	const MAX_COUNT_ROUNDS = 38;
 	return (
@@ -51,18 +50,11 @@ function FixtureList({ fixtures, loading }) {
 										{item.awayTeam.team_name}
 									</Link>
 								</td>
-								<td className="center" onClick={() => setShow(!show)}>
-									{item.status}
-								</td>
+								<td className="center">{item.status}</td>
 								<td className="center" width="30%">
 									<FixtureEvents id={item.fixture_id} />
 								</td>
 							</tr>
-							{show && (
-								<tr>
-									<td colSpan="6">hi</td>
-								</tr>
-							)}
 							{(key + 1) % 10 === 0 && round + 1 <= MAX_COUNT_ROUNDS && (
 								<tr>
 									<td className="line center" colSpan="6">
