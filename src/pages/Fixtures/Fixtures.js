@@ -9,13 +9,7 @@ const DivContainerHOC = ContainerHOC(FixturesList);
 
 class Fixtures extends Component {
 	state = {
-		fixtures: [],
-		tempFixtures: [],
-		offset: 0,
-		limit: 20,
-		isFetching: true,
 		loading: false,
-		error: '',
 	};
 
 	componentDidMount() {
