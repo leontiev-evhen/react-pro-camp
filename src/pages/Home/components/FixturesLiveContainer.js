@@ -15,18 +15,28 @@ class FixturesLiveContainer extends Component {
 		error: '',
 	};
 	componentDidMount() {
-		this.fetchStandings();
+		this.fetchFixturesLive();
 	}
 
-	fetchStandings = id => {
-		this.setState({ isFetchingStandings: true });
+	fetchFixturesLive = id => {
+		this.setState({ isFetching: true });
 		try {
-			let leagueId = id ? id : ID_LEAGUE;
-			const result = API_FIXTURES_LIVE.fixtures[leagueId];
-			this.setState({
-				fixturesLive: result,
-				isFetching: false,
-			});
+			setTimeout(() => {
+				let result;
+				if (id === 'all') {
+					result = Object.values(API_FIXTURES_LIVE.fixtures).reduce(
+						(previousValue, currentValue) => [...previousValue, ...currentValue]
+					);
+				} else {
+					let leagueId = id ? id : ID_LEAGUE;
+					result = API_FIXTURES_LIVE.fixtures[leagueId];
+				}
+
+				this.setState({
+					fixturesLive: result,
+					isFetching: false,
+				});
+			}, 500);
 		} catch (e) {
 			this.setState({
 				error: e.message || e.data.message,
@@ -41,14 +51,14 @@ class FixturesLiveContainer extends Component {
 		return (
 			<div className="section">
 				<div className="btn-sections">
-					<div onClick={() => this.fetchStandings('all')}>All</div>
+					<div onClick={() => this.fetchFixturesLive('all')}>All</div>
 					{leagues.map(item => (
-						<div key={item.id} onClick={() => this.fetchStandings(item.id)}>
+						<div key={item.id} onClick={() => this.fetchFixturesLive(item.id)}>
 							<Image src={item.icon} rounded />
 						</div>
 					))}
 				</div>
-				<div className="section-title center">Standings</div>
+				<div className="section-title center">Fixtures live</div>
 				<div>
 					<DivContainer
 						fixturesLive={fixturesLive}

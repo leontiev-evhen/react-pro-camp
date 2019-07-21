@@ -38,7 +38,7 @@ function Home() {
 				<StandingsContainer leagues={LEAGUES} />
 			</Col>
 			<Col md="4">
-				<OddsContainer leagues={LEAGUES} />
+				<OddsContainer />
 			</Col>
 		</Row>
 	);

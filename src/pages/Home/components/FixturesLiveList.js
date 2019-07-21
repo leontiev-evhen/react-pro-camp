@@ -21,7 +21,7 @@ function FixturesLiveList({ fixturesLive }) {
 						<tr key={item.fixture_id}>
 							<td className="center">
 								<Link to={`/team/${item.homeTeam.team_id}`}>
-									<Image src={item.homeTeam.logo} rounded width="30" />
+									<Image src={item.homeTeam.logo} rounded width="20" />
 								</Link>
 							</td>
 							<td className="center">
@@ -29,7 +29,7 @@ function FixturesLiveList({ fixturesLive }) {
 							</td>
 							<td className="center">
 								<Link to={`/team/${item.awayTeam.team_id}`}>
-									<Image src={item.awayTeam.logo} rounded width="30" />
+									<Image src={item.awayTeam.logo} rounded width="20" />
 								</Link>
 							</td>
 							<td className="center">{item.elapsed}&apos;</td>
