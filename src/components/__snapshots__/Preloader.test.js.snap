@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Preloader component Preloader component render correctly 1`] = `
+<Preloader>
+  <div
+    className="preloder"
+  >
+    <Bootstrap(Spinner)
+      animation="grow"
+      className="loader"
+      variant="danger"
+    >
+      <Spinner
+        animation="grow"
+        bsPrefix="spinner"
+        className="loader"
+        variant="danger"
+      >
+        <div
+          className="loader spinner-grow text-danger"
+        />
+      </Spinner>
+    </Bootstrap(Spinner)>
+  </div>
+</Preloader>
+`;

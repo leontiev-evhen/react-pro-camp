@@ -1,6 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import {
+	Navbar,
+	Nav,
+	Form,
+	FormControl,
+	Button,
+	Figure,
+} from 'react-bootstrap';
 import logo from '../assets/logo.png';
 
 const NAV_ITEMS = [
@@ -27,7 +34,7 @@ export function Header() {
 		<header>
 			<Navbar bg="light" expand="lg">
 				<Navbar.Brand href="/">
-					<img
+					<Figure.Image
 						src={logo}
 						width="80"
 						height="80"

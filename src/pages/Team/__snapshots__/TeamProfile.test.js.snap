@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TeamProfile TeamProfile component render correctly 1`] = `
+<div
+  className="team-section"
+>
+  <Bootstrap(Row)>
+    <Col
+      md={3}
+    >
+      <Figure>
+        <FigureImage
+          alt="logo"
+          fluid={true}
+          height={180}
+          src="logo.png"
+          width={171}
+        />
+        <FigureCaption>
+          <div>
+            London
+          </div>
+          <div>
+            Baker street
+          </div>
+        </FigureCaption>
+      </Figure>
+    </Col>
+    <Col
+      md={9}
+    >
+      <h1>
+        Arsenal
+      </h1>
+      <ul>
+        <li>
+          <b>
+            Country:
+          </b>
+           
+          England
+        </li>
+        <li>
+          <b>
+            Founded:
+          </b>
+           
+          1989
+        </li>
+        <li>
+          <b>
+            Stadium:
+          </b>
+           «
+          Stadium name
+          »
+        </li>
+        <li>
+          <b>
+            Capacity:
+          </b>
+           
+          20000
+        </li>
+      </ul>
+    </Col>
+  </Bootstrap(Row)>
+</div>
+`;

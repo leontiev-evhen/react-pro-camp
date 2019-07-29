@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Header component render correctly 1`] = `
+<header>
+  <Bootstrap(undefined)
+    bg="light"
+    expand="lg"
+  >
+    <NavbarBrand
+      href="/"
+    >
+      <FigureImage
+        alt="React Bootstrap logo"
+        className="d-inline-block align-top"
+        fluid={true}
+        height="80"
+        src="logo.png"
+        width="80"
+      />
+    </NavbarBrand>
+    <NavbarToggle
+      aria-controls="basic-navbar-nav"
+      label="Toggle navigation"
+    />
+    <NavbarCollapse
+      id="basic-navbar-nav"
+    >
+      <Nav
+        className="mr-auto"
+        fill={false}
+        justify={false}
+      >
+        <NavLink
+          activeClassName="selected"
+          className="nav-link"
+          exact={true}
+          key="/"
+          to="/"
+        >
+          Home
+        </NavLink>
+        <NavLink
+          activeClassName="selected"
+          className="nav-link"
+          exact={true}
+          key="/teams"
+          to="/teams"
+        >
+          Teams
+        </NavLink>
+        <NavLink
+          activeClassName="selected"
+          className="nav-link"
+          exact={true}
+          key="/fixtures"
+          to="/fixtures"
+        >
+          Fixtures
+        </NavLink>
+        <NavLink
+          activeClassName="selected"
+          className="nav-link"
+          exact={true}
+          key="/odds"
+          to="/odds"
+        >
+          Odds
+        </NavLink>
+      </Nav>
+      <Form
+        inline={true}
+      >
+        <FormControl
+          className="mr-sm-2"
+          placeholder="Search"
+          type="text"
+        />
+        <Button
+          active={false}
+          disabled={false}
+          type="button"
+          variant="outline-secondary"
+        >
+          Search
+        </Button>
+      </Form>
+    </NavbarCollapse>
+  </Bootstrap(undefined)>
+</header>
+`;

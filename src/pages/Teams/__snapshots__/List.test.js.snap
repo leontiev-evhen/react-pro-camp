@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List List component render correctly 1`] = `
+<Bootstrap(Row)>
+  <ErrorBoundary
+    key="1"
+  >
+    <Col
+      md="3"
+    >
+      <div
+        className="section-team center"
+      >
+        <Link
+          to="/team/1"
+        >
+          <div
+            className="section-team-title"
+          >
+            team1
+          </div>
+          <Figure>
+            <FigureImage
+              alt="logo"
+              fluid={true}
+              src="logo1.png"
+            />
+          </Figure>
+          <small />
+        </Link>
+      </div>
+    </Col>
+  </ErrorBoundary>
+  <ErrorBoundary
+    key="2"
+  >
+    <Col
+      md="3"
+    >
+      <div
+        className="section-team center"
+      >
+        <Link
+          to="/team/2"
+        >
+          <div
+            className="section-team-title"
+          >
+            team2
+          </div>
+          <Figure>
+            <FigureImage
+              alt="logo"
+              fluid={true}
+              src="logo2.png"
+            />
+          </Figure>
+          <small />
+        </Link>
+      </div>
+    </Col>
+  </ErrorBoundary>
+  <ErrorBoundary
+    key="3"
+  >
+    <Col
+      md="3"
+    >
+      <div
+        className="section-team center"
+      >
+        <Link
+          to="/team/3"
+        >
+          <div
+            className="section-team-title"
+          >
+            team3
+          </div>
+          <Figure>
+            <FigureImage
+              alt="logo"
+              fluid={true}
+              src="logo3.png"
+            />
+          </Figure>
+          <small />
+        </Link>
+      </div>
+    </Col>
+  </ErrorBoundary>
+</Bootstrap(Row)>
+`;

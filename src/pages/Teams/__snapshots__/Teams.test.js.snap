@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Teams component Teams component render correctly 1`] = `
+<containerHOC
+  error=""
+  isFetching={false}
+  teams={Array []}
+/>
+`;

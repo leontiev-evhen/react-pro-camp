@@ -6,7 +6,7 @@ import TeamProfile from './TeamProfile';
 
 const DivContainerHOC = ContainerHOC(TeamProfile);
 
-class Team extends Component {
+export class Team extends Component {
 	state = {
 		team: {},
 		isFetching: true,

@@ -7,7 +7,7 @@ import List from './List';
 
 const DivContainerHOC = ContainerHOC(List);
 
-class Home extends Component {
+export class Teams extends Component {
 	componentDidMount() {
 		if (this.props.teams.length === 0) this.props.fetchTeams();
 	}
@@ -21,7 +21,7 @@ class Home extends Component {
 	}
 }
 
-Home.propTypes = {
+Teams.propTypes = {
 	teams: PropTypes.array.isRequired,
 	isFetching: PropTypes.bool.isRequired,
 	error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).isRequired,
@@ -43,4 +43,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(Home);
+)(Teams);

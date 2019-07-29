@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContainerHOC ContainerHOC Component Render correctly Component 1`] = `<SomeComponent />`;
+
+exports[`ContainerHOC ContainerHOC Preloader Render correctly Preloader component 1`] = `<Preloader />`;
+
+exports[`ContainerHOC ContainerHOC error Render correctly error 1`] = `
+<div
+  className="error-message"
+>
+  Unknown error
+</div>
+`;

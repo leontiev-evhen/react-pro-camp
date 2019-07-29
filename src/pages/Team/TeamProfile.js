@@ -42,6 +42,7 @@ TeamProfile.propTypes = {
 	team: PropTypes.shape({
 		logo: PropTypes.string,
 		venue_city: PropTypes.string,
+		venue_address: PropTypes.string,
 		name: PropTypes.string,
 		country: PropTypes.string,
 		founded: PropTypes.number,

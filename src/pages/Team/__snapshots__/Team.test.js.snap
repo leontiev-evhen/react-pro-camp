@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Team component Team component render correctly 1`] = `
+<containerHOC
+  error=""
+  isFetching={true}
+  team={Object {}}
+/>
+`;
