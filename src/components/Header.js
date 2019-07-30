@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import {
 	Navbar,
@@ -7,6 +7,7 @@ import {
 	FormControl,
 	Button,
 	Figure,
+	InputGroup,
 } from 'react-bootstrap';
 import logo from '../assets/logo.png';
 
@@ -23,16 +24,18 @@ const NAV_ITEMS = [
 		link: '/fixtures',
 		name: 'Fixtures',
 	},
-	{
-		link: '/odds',
-		name: 'Odds',
-	},
 ];
 
 export function Header() {
+	const [isSollapsed, onToggle] = useState(false);
 	return (
 		<header>
-			<Navbar bg="light" expand="lg">
+			<Navbar
+				onToggle={() => onToggle(!isSollapsed)}
+				expanded={isSollapsed}
+				bg="light"
+				expand="lg"
+			>
 				<Navbar.Brand href="/">
 					<Figure.Image
 						src={logo}
@@ -52,14 +55,19 @@ export function Header() {
 								className="nav-link"
 								exact
 								activeClassName="selected"
+								onClick={() => onToggle(false)}
 							>
 								{item.name}
 							</NavLink>
 						))}
 					</Nav>
 					<Form inline>
-						<FormControl type="text" placeholder="Search" className="mr-sm-2" />
-						<Button variant="outline-secondary">Search</Button>
+						<InputGroup>
+							<FormControl aria-describedby="basic-addon2" />
+							<InputGroup.Append>
+								<Button variant="outline-secondary">Search</Button>
+							</InputGroup.Append>
+						</InputGroup>
 					</Form>
 				</Navbar.Collapse>
 			</Navbar>

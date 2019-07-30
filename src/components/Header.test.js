@@ -10,6 +10,6 @@ describe('Header', () => {
 	});
 
 	it('Header navigation links', () => {
-		expect(Component.find('.nav-link')).toHaveLength(4);
+		expect(Component.find('.nav-link')).toHaveLength(3);
 	});
 });

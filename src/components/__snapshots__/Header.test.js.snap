@@ -5,6 +5,8 @@ exports[`Header Header component render correctly 1`] = `
   <Bootstrap(undefined)
     bg="light"
     expand="lg"
+    expanded={false}
+    onToggle={[Function]}
   >
     <NavbarBrand
       href="/"
@@ -35,6 +37,7 @@ exports[`Header Header component render correctly 1`] = `
           className="nav-link"
           exact={true}
           key="/"
+          onClick={[Function]}
           to="/"
         >
           Home
@@ -44,6 +47,7 @@ exports[`Header Header component render correctly 1`] = `
           className="nav-link"
           exact={true}
           key="/teams"
+          onClick={[Function]}
           to="/teams"
         >
           Teams
@@ -53,36 +57,30 @@ exports[`Header Header component render correctly 1`] = `
           className="nav-link"
           exact={true}
           key="/fixtures"
+          onClick={[Function]}
           to="/fixtures"
         >
           Fixtures
-        </NavLink>
-        <NavLink
-          activeClassName="selected"
-          className="nav-link"
-          exact={true}
-          key="/odds"
-          to="/odds"
-        >
-          Odds
         </NavLink>
       </Nav>
       <Form
         inline={true}
       >
-        <FormControl
-          className="mr-sm-2"
-          placeholder="Search"
-          type="text"
-        />
-        <Button
-          active={false}
-          disabled={false}
-          type="button"
-          variant="outline-secondary"
-        >
-          Search
-        </Button>
+        <Bootstrap(InputGroup)>
+          <FormControl
+            aria-describedby="basic-addon2"
+          />
+          <InputGroupAppend>
+            <Button
+              active={false}
+              disabled={false}
+              type="button"
+              variant="outline-secondary"
+            >
+              Search
+            </Button>
+          </InputGroupAppend>
+        </Bootstrap(InputGroup)>
       </Form>
     </NavbarCollapse>
   </Bootstrap(undefined)>
