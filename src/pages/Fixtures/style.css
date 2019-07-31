@@ -1,9 +1,13 @@
-.table th {
+.fixtures-table th {
   text-align: center;
 }
 
-.table img {
-  margin-right: 10px;
+.fixtures-table td {
+  vertical-align: middle;
+}
+
+.fixtures-table img {
+  margin: 0 10px;
 }
 
 .section-home-team {
@@ -22,4 +26,18 @@
 
 .list-group-item img {
   margin: 0 10px;
+}
+
+.fixtures-table .list-group-item {
+  padding: 10px;
+}
+
+.fixtures-table .card-body {
+  padding: 0;
+}
+
+@media only screen and (max-width: 1200px) {
+  .fixtures-table td {
+    min-width: 200px;
+  }
 }

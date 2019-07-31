@@ -5,14 +5,13 @@ import { Table, Image } from 'react-bootstrap';
 import { Preloader } from '../../../components';
 import { timeConverter } from '../../../utils/date';
 import FixtureEvents from './FixtureEvents';
-import '../style.css';
 
 function FixtureList({ fixtures, loading }) {
 	let round = 1;
 	const MAX_COUNT_ROUNDS = 38;
 	return (
 		<React.Fragment>
-			<Table striped bordered hover responsive>
+			<Table striped bordered hover responsive className="fixtures-table">
 				<thead>
 					<tr>
 						<th>Event date</th>
@@ -37,12 +36,12 @@ function FixtureList({ fixtures, loading }) {
 								</td>
 								<td className="section-home-team">
 									<Link to={`/team/${item.homeTeam.team_id}`}>
-										<Image src={item.homeTeam.logo} rounded width="30" />
 										{item.homeTeam.team_name}
+										<Image src={item.homeTeam.logo} rounded width="30" />
 									</Link>
 								</td>
 								<td className="center">
-									{item.score.fulltime} ({item.score.halftime})
+									{item.score.fulltime}({item.score.halftime})
 								</td>
 								<td className="section-away-team">
 									<Link to={`/team/${item.awayTeam.team_id}`}>

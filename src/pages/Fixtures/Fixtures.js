@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { requestFixtures, updateFixtures } from '../../actions';
 import ContainerHOC from '../../hoc/ContainerHOC';
 import FixturesList from './componets/FixturesList';
+import './style.css';
 
 const DivContainerHOC = ContainerHOC(FixturesList);
 

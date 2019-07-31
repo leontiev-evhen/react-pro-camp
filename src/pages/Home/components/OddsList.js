@@ -20,17 +20,27 @@ function OddsList({ odds }) {
 					<tr key={item.id}>
 						<td className="center">{timeConverter(item.event_timestamp)}</td>
 						<td className="center">
-							<Link to={`/team/${item.homeTeam.team_id}`}>
-								<Image src={item.homeTeam.logo} rounded width="20" />
-							</Link>
 							<u>{item.values[0].odd}</u>
+							<Link to={`/team/${item.homeTeam.team_id}`}>
+								<Image
+									src={item.homeTeam.logo}
+									rounded
+									width="20"
+									className="odds-img"
+								/>
+							</Link>
 						</td>
 						<td className="center">
 							<u>{item.values[1].odd}</u>
 						</td>
 						<td className="center">
 							<Link to={`/team/${item.awayTeam.team_id}`}>
-								<Image src={item.awayTeam.logo} rounded width="20" />
+								<Image
+									src={item.awayTeam.logo}
+									rounded
+									width="20"
+									className="odds-img"
+								/>
 							</Link>
 							<u>{item.values[2].odd}</u>
 						</td>
